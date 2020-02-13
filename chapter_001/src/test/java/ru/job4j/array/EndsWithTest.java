@@ -22,4 +22,12 @@ public class EndsWithTest {
         boolean result = EndsWith.endsWith(word, post);
         assertThat(result, is(false));
     }
+
+    @Test
+    public void whenNotEndWithPrefixAt3dSymbolThenFalse() {
+        char[] word = {'H', 'e', 'l', 'l', 'o'};
+        char[] post = {'m', 'l', 'o'};
+        boolean result = EndsWith.endsWith(word, post);
+        assertThat(result, is(false));
+    }
 }
