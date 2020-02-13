@@ -5,7 +5,7 @@ import ru.job4j.calculator.Fit;
 public class FitTest {
 
     @Test
-    public void manWeightTest(){
+    public void manWeightTest() {
         int in = 180;
         double expected = 92.0;
         double out = Fit.manWeight(in);
@@ -13,7 +13,7 @@ public class FitTest {
     }
 
     @Test
-    public void womanWeightTest(){
+    public void womanWeightTest() {
         int in = 160;
         double expected = 57.5;
         double out = Fit.womanWeight(in);

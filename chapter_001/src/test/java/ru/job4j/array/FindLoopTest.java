@@ -17,7 +17,7 @@ public class FindLoopTest {
     }
 
     @Test
-    public void whenArrayHas6Then_min1() {
+    public void whenArrayHas6ThenNeg1() {
         FindLoop find = new FindLoop();
         int[] input = new int[] {5, 10, 3};
         int value = 6;

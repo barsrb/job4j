@@ -5,19 +5,19 @@ import org.junit.Test;
 
 public class FactorialTest {
     @Test
-    public void factorial_0(){
+    public void factorial0() {
         int result = Factorial.calc(0);
         Assert.assertEquals(result, 1);
     }
 
     @Test
-    public void factorial_1(){
+    public void factorial1() {
         int result = Factorial.calc(1);
         Assert.assertEquals(result, 1);
     }
 
     @Test
-    public void factorial_5(){
+    public void factorial5() {
         int result = Factorial.calc(5);
         Assert.assertEquals(result, 120);
     }

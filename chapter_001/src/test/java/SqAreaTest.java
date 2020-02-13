@@ -4,7 +4,7 @@ import ru.job4j.condition.SqArea;
 
 public class SqAreaTest {
     @Test
-    public void sqAreaTest(){
+    public void sqAreaTest() {
         double result = SqArea.square(4, 1);
         double expected = 1.0;
         Assert.assertEquals(expected, result, 0.1);

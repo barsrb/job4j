@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 
 public class SquareTest {
     @Test
-    public void whenBound3Then0_1_4() {
+    public void whenBound3Then014() {
         int bound = 3;
         int[] rst = Square.calculate(bound);
         int[] expect = new int[] {0, 1, 4};
@@ -14,7 +14,7 @@ public class SquareTest {
     }
 
     @Test
-    public void whenBound5Then0_1_4_9_16() {
+    public void whenBound5Then014916() {
         int bound = 5;
         int[] rst = Square.calculate(bound);
         int[] expect = new int[] {0, 1, 4, 9, 16};

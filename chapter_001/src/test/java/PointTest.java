@@ -4,7 +4,7 @@ import ru.job4j.condition.Point;
 
 public class PointTest {
     @Test
-    public void testPointDistance(){
+    public void testPointDistance() {
         int x1 = 0;
         int y1 = 0;
         int x2 = 2;

@@ -12,7 +12,7 @@ public class Calculator {
      * @param first первое слогаемое
      * @param second второе слогаемое
      */
-    public static void add (double first, double second) {
+    public static void add(double first, double second) {
         double result = first + second;
         System.out.println(first + " + " + second + " = " + result);
 
@@ -23,7 +23,7 @@ public class Calculator {
      * @param first делимое
      * @param second делитель
      */
-    public static void div (double first, double second) {
+    public static void div(double first, double second) {
         double result = first / second;
         System.out.println(first + " / " + second + " = " + result);
 
@@ -34,7 +34,7 @@ public class Calculator {
      * @param first первый множитель
      * @param second второй множитель
      */
-    public static void multiply (double first, double second) {
+    public static void multiply(double first, double second) {
         double result = first * second;
         System.out.println(first + " * " + second + " = " + result);
 
@@ -46,7 +46,7 @@ public class Calculator {
      * @param first уменьшаемое
      * @param second вычитаемое
      */
-    public static void subtrack (double first, double second) {
+    public static void subtrack(double first, double second) {
         double result = first - second;
         System.out.println(first + " - " + second + " = " + result);
 
