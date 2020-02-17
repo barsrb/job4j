@@ -24,11 +24,9 @@ public class Converter {
         System.out.println(ruble + " rubles are " + euro + " euro.");
         int dollar = rubleToDollar(ruble);
         System.out.println(ruble + " rubles are " + dollar + " euro.");
-
         euro = 10;
         ruble = euroToRuble(euro);
         System.out.println(euro + " euro are " + ruble + " ruble.");
-
         dollar = 20;
         ruble = dollarToRuble(dollar);
         System.out.println(dollar + " dollar are " + ruble + " ruble.");
