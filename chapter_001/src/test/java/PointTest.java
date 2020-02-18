@@ -5,25 +5,21 @@ import ru.job4j.condition.Point;
 public class PointTest {
     @Test
     public void testPointDistance() {
-        int x1 = 0;
-        int y1 = 0;
-        int x2 = 2;
-        int y2 = 0;
+        Point p1 = new Point(0, 0);
+        Point p2 = new Point(2, 0);
 
         double expected = 2.0;
 
-        double result = Point.distance(x1, y1, x2, y2);
+        double result = p1.distance(p2);
 
         Assert.assertEquals(expected, result, 0.01);
 
-        x1 = -1;
-        y1 = -1;
-        x2 = 1;
-        y2 = 1;
+        p1 = new Point(-1, -1);
+        p2 = new Point(1, 1);
 
         expected = 2.8;
 
-        result = Point.distance(x1, y1, x2, y2);
+        result = p1.distance(p2);
 
         Assert.assertEquals(expected, result, 0.5);
     }
