@@ -20,8 +20,8 @@ public class Triangle {
      *
      * @return Периметр.
      */
-    public double period() {
-        return ((first.distance(second) + second.distance(third) + third.distance(first)) / 2);
+    public double period(double a, double b, double c) {
+        return ((a + b + c) / 2);
     }
 
     /**
@@ -40,7 +40,7 @@ public class Triangle {
         double a = first.distance(second);
         double b = first.distance(third);
         double c = second.distance(third);
-        double p = this.period();
+        double p = this.period(a, b, c);
         if (this.exist()) {
             return Math.sqrt(p * (p - a) * (p - b) * (p - c));
         }

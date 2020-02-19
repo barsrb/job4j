@@ -33,7 +33,7 @@ public class TriangleTest {
         Point c = new Point(1, 1);
         Triangle triangle = new Triangle(a, b, c);
         double period = 2.414;
-        assertEquals(triangle.period(), period, 0.001);
+        assertEquals(triangle.period(a.distance(b), b.distance(c), c.distance(a)), period, 0.001);
     }
 
     @Test
