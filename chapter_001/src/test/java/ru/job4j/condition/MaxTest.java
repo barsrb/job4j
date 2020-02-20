@@ -24,4 +24,16 @@ public class MaxTest {
         int result = Max.max(4, 4);
         assertThat(result, is(4));
     }
+
+    @Test
+    public void maxOfTree() {
+        int result = Max.max(5, 3, 8);
+        assertThat(result, is(8));
+    }
+
+    @Test
+    public void maxOfFour() {
+        int result = Max.max(5, 3, 9, 2);
+        assertThat(result, is(9));
+    }
 }
