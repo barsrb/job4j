@@ -71,4 +71,26 @@ public class TrackerTest {
         Item[] expect = {item1, item2, item3, item4};
         assertThat(results, is(expect));
     }
+
+    @Test
+    public void whenReplace() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item("Bug");
+        tracker.add(bug);
+        String id = bug.getId();
+        Item bugWithDesc = new Item("Bug with description");
+        tracker.replace(id, bugWithDesc);
+        assertThat(tracker.findById(id).getName(), is("Bug with description"));
+    }
+
+    @Test
+    public void whenNotReplace() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item("Bug");
+        tracker.add(bug);
+        String id = bug.getId();
+        Item bugWithDesc = new Item("Bug with description");
+        tracker.replace("none", bugWithDesc);
+        assertThat(tracker.findById(id).getName(), is("Bug"));
+    }
 }
