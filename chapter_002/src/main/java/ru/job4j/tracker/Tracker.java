@@ -50,6 +50,12 @@ public class Tracker {
         return false;
     }
 
+    public void delete(String id) {
+        int index = indexOf(id);
+        System.arraycopy(items, index + 1, items, index, position - index);
+        items[--position] = null;
+    }
+
     private int indexOf(String id) {
         int rsl = -1;
         for (int index = 0; index < position; index++) {
