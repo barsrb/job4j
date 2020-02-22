@@ -50,10 +50,15 @@ public class Tracker {
         return false;
     }
 
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean deleted = false;
         int index = indexOf(id);
-        System.arraycopy(items, index + 1, items, index, position - index);
-        items[--position] = null;
+        if(index>-1) {
+            System.arraycopy(items, index + 1, items, index, position - index);
+            items[--position] = null;
+            deleted = true;
+        }
+        return deleted;
     }
 
     private int indexOf(String id) {

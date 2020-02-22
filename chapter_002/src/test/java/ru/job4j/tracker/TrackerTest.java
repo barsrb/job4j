@@ -100,8 +100,15 @@ public class TrackerTest {
         Item bug = new Item("Bug");
         tracker.add(bug);
         String id = bug.getId();
-        tracker.delete(id);
-        assertNull(tracker.findById(id));
+        assertTrue(tracker.delete(id));
+    }
+
+    @Test
+    public void whenNotDelete() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item("Bug");
+        tracker.add(bug);
+        assertFalse(tracker.delete("none"));
     }
 
     @Test
