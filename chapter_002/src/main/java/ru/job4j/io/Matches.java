@@ -8,10 +8,10 @@ public class Matches {
         int matches = 11;
         int currentPlayer = 1;
         System.out.println("На столе " + matches + " спичек.");
-        while (matches>3){
+        while (matches > 3) {
             System.out.println("Игрок " + currentPlayer + ", бери от 1 до 3 спичек.");
             int getMatches = Integer.valueOf(scanner.nextLine());
-            if (getMatches<=3 && getMatches>=1) {
+            if (getMatches <= 3 && getMatches >= 1) {
                 matches -= getMatches;
                 currentPlayer = currentPlayer == 1 ? 2 : 1;
             } else {

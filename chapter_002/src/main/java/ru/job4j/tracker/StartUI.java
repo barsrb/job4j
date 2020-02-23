@@ -11,12 +11,12 @@ public class StartUI {
                 StartUI.createItem(input, tracker);
             } else if (select == 1) {
                 System.out.println("=== Show all items ====");
-                Item [] items= tracker.findAll();
+                Item[] items = tracker.findAll();
                 System.out.println("Items in tracker - " + items.length);
                 for (int index = 0; index < items.length; index++) {
                     System.out.println("Item ID - " + items[index].getId() + ", name - " + items[index].getName());
                 }
-            } else if (select == 2){
+            } else if (select == 2) {
                 StartUI.editItem(input, tracker);
             } else if (select == 3) {
                 StartUI.deleteItem(input, tracker);
@@ -65,12 +65,11 @@ public class StartUI {
         String editedID = input.askStr("Enter ID of edited Item: ");
         String name = input.askStr("Enter new name: ");
         Item item = new Item(name);
-        if(tracker.replace(editedID, item)) {
+        if (tracker.replace(editedID, item)) {
             System.out.println("Item edit successful.");
         } else {
             System.out.println("Item edit failed.");
         }
-        ;
     }
 
     private void showMenu() {

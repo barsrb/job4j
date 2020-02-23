@@ -6,13 +6,12 @@ public class Bus implements Transport {
 
     @Override
     public void go() {
-        if(fuel>0) {
+        if (fuel > 0) {
             System.out.println("Wheels of the bus go round and round...");
             System.out.println("There are " + passengers + " in bus!");
             System.out.println("There are " + fuel + " in tank.");
             fuel--;
-        }
-        else {
+        } else {
             System.out.println("No fuel. Refill and go!");
         }
     }
@@ -26,7 +25,7 @@ public class Bus implements Transport {
     public double refuel(int liters) {
         double price = 9.99;
         fuel += liters;
-        return price*liters;
+        return price * liters;
     }
 
     public static void main(String[] args) {
