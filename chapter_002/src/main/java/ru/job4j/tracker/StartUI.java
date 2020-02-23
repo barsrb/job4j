@@ -50,7 +50,7 @@ public class StartUI {
         tracker.add(item);
     }
 
-    private static void deleteItem(Input input, Tracker tracker) {
+    public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete Item ====");
         String deleteID = input.askStr("Enter ID of delete Item: ");
         if (tracker.delete(deleteID)) {
@@ -60,7 +60,7 @@ public class StartUI {
         }
     }
 
-    private static void editItem(Input input, Tracker tracker) {
+    public static void editItem(Input input, Tracker tracker) {
         System.out.println("=== Edit Item ====");
         String editedID = input.askStr("Enter ID of edited Item: ");
         String name = input.askStr("Enter new name: ");
