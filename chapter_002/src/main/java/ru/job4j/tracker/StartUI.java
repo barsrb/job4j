@@ -8,10 +8,7 @@ public class StartUI {
             this.showMenu();
             int select = input.askInt("Select:");
             if (select == 0) {
-                System.out.println("=== Create a new Item ====");
-                String name = input.askStr("Enter name: ");
-                Item item = new Item(name);
-                tracker.add(item);
+                StartUI.createItem(input, tracker);
             } else if (select == 1) {
                 System.out.println("=== Show all items ====");
                 Item [] items= tracker.findAll();
@@ -20,23 +17,9 @@ public class StartUI {
                     System.out.println("Item ID - " + items[index].getId() + ", name - " + items[index].getName());
                 }
             } else if (select == 2){
-                System.out.println("=== Edit Item ====");
-                String editedID = input.askStr("Enter ID of edited Item: ");
-                String name = input.askStr("Enter new name: ");
-                Item item = new Item(name);
-                if(tracker.replace(editedID, item)) {
-                    System.out.println("Item edit successful.");
-                } else {
-                    System.out.println("Item edit failed.");
-                };
+                StartUI.editItem(input, tracker);
             } else if (select == 3) {
-                System.out.println("=== Delete Item ====");
-                String deleteID = input.askStr("Enter ID of delete Item: ");
-                if (tracker.delete(deleteID)) {
-                    System.out.println("Item delete successful.");
-                } else {
-                    System.out.println("Item delete failed.");
-                }
+                StartUI.deleteItem(input, tracker);
             } else if (select == 4) {
                 System.out.println("=== Find Item by ID ====");
                 String itemID = input.askStr("Enter ID: ");
@@ -58,6 +41,36 @@ public class StartUI {
                 run = false;
             }
         }
+    }
+
+    public static void createItem(Input input, Tracker tracker) {
+        System.out.println("=== Create a new Item ====");
+        String name = input.askStr("Enter name: ");
+        Item item = new Item(name);
+        tracker.add(item);
+    }
+
+    private static void deleteItem(Input input, Tracker tracker) {
+        System.out.println("=== Delete Item ====");
+        String deleteID = input.askStr("Enter ID of delete Item: ");
+        if (tracker.delete(deleteID)) {
+            System.out.println("Item delete successful.");
+        } else {
+            System.out.println("Item delete failed.");
+        }
+    }
+
+    private static void editItem(Input input, Tracker tracker) {
+        System.out.println("=== Edit Item ====");
+        String editedID = input.askStr("Enter ID of edited Item: ");
+        String name = input.askStr("Enter new name: ");
+        Item item = new Item(name);
+        if(tracker.replace(editedID, item)) {
+            System.out.println("Item edit successful.");
+        } else {
+            System.out.println("Item edit failed.");
+        }
+        ;
     }
 
     private void showMenu() {
