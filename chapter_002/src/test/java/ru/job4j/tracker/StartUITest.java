@@ -14,21 +14,10 @@ import static org.junit.Assert.*;
 public class StartUITest {
     private final PrintStream stdout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-    private Tracker tracker;
 
     @Before
     public void loadOutput() {
         System.setOut(new PrintStream(this.out));
-    }
-    @Before
-    public void initTracker() {
-        tracker = new Tracker();
-        tracker.add(new Item("test 1"));
-        tracker.add(new Item("test 2"));
-        tracker.add(new Item("test 3"));
-        tracker.add(new Item("test 4"));
-        tracker.add(new Item("test name"));
-        tracker.add(new Item("test name"));
     }
 
     @After
@@ -36,10 +25,6 @@ public class StartUITest {
         System.setOut(this.stdout);
     }
 
-    @After
-    public void clearTracker() {
-        tracker = null;
-    }
 
     @Test
     public void whenExit() {
@@ -92,25 +77,41 @@ public class StartUITest {
     @Test
     public void whenFindAll() {
         ShowAllAction act = new ShowAllAction();
+        StringJoiner expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator());
+        expect.add("Items in tracker - 3");
+        Tracker tracker = new Tracker();
+        Item item = new Item("test 1");
+        tracker.add(item);
+        expect.add("Item ID - " + item.getId() + ", name - " + item.getName());
+        item = new Item("test 2");
+        tracker.add(item);
+        expect.add("Item ID - " + item.getId() + ", name - " + item.getName());
+        item = new Item("test 3");
+        tracker.add(item);
+        expect.add("Item ID - " + item.getId() + ", name - " + item.getName());
         act.execute(new StubInput(new String[] {}), tracker);
-        StringJoiner expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add("Items in tracker - " + tracker.findAll().length);
-        for (Item i : tracker.findAll()) {
-            expect.add("Item ID - " + i.getId() + ", name - " + i.getName());
-        }
         assertThat(new String(out.toByteArray()), is(expect.toString()));
     }
 
     @Test
     public void whenFindByName() {
         FindByNameAction act = new FindByNameAction();
+        StringJoiner expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator());
+        expect.add("Founded items - 2");
+        Tracker tracker = new Tracker();
+        Item item = new Item("test 1");
+        tracker.add(item);
+        item = new Item("test 2");
+        tracker.add(item);
+        item = new Item("test 3");
+        tracker.add(item);
+        item = new Item("test name");
+        tracker.add(item);
+        expect.add("Item ID - " + item.getId() + ", name - " + item.getName());
+        item = new Item("test name");
+        tracker.add(item);
+        expect.add("Item ID - " + item.getId() + ", name - " + item.getName());
         act.execute(new StubInput(new String[] {"test name"}), tracker);
-        Item[] items = tracker.findByName("test name");
-        StringJoiner expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add("Founded items - " + items.length);
-        for (Item i : items) {
-            expect.add("Item ID - " + i.getId() + ", name - " + i.getName());
-        }
         assertThat(new String(out.toByteArray()), is(expect.toString()));
     }
 }
