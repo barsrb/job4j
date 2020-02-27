@@ -11,7 +11,7 @@ public class Fact {
             throw new IllegalArgumentException("N must be greater then 1");
         }
         int rsl = 1;
-        for (int index = 1; index != n; index++) {
+        for (int index = 1; index <= n; index++) {
             rsl *= index;
         }
         return rsl;
