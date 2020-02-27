@@ -25,4 +25,46 @@ public class UserStore {
         return true;
     }
 
+    public static void main(String[] args) {
+        User[] users = {
+                new User("Petr Arsentev", true),
+                new User("NotValid", false),
+                new User("xx", true)
+        };
+
+
+        try {
+            User user = findUser(users, "none");
+            if (validate(user)) {
+                System.out.println("This user has an access");
+            }
+        } catch (UserInvalidException e) {
+            e.printStackTrace();
+        } catch (UserNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            User user = findUser(users, "NotValid");
+            if (validate(user)) {
+                System.out.println("This user has an access");
+            }
+        } catch (UserInvalidException e) {
+            e.printStackTrace();
+        } catch (UserNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            User user = findUser(users, "xx");
+            if (validate(user)) {
+                System.out.println("This user has an access");
+            }
+        } catch (UserInvalidException e) {
+            e.printStackTrace();
+        } catch (UserNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
