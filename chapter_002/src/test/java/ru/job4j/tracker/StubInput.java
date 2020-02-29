@@ -20,6 +20,11 @@ public class StubInput implements Input {
 
     @Override
     public int askInt(String question, int max) {
-        return askInt(question);
+        int answer = askInt(question);
+        if (answer >= 0 && answer < max) {
+            return answer;
+        } else {
+            throw new IllegalStateException(String.format("Out of about %s > [0, %s]", answer, max));
+        }
     }
 }
