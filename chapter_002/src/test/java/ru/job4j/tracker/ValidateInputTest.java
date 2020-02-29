@@ -16,7 +16,7 @@ public class ValidateInputTest {
         String[] data = {"one", "1"};
         ValidateInput input = new ValidateStubInput(data);
         input.askInt("Enter");
-        String expect = "Please enter validate data again.\r\n";
+        String expect = "Please enter validate data again." + System.lineSeparator();
         assertThat(mem.toString(), is(expect));
         System.setOut(out);
     }
@@ -29,7 +29,7 @@ public class ValidateInputTest {
         String[] data = {"-5", "1"};
         ValidateInput input = new ValidateStubInput(data);
         input.askInt("Enter", 4);
-        String expect = "Please select key from menu.\r\n";
+        String expect = "Please select key from menu." + System.lineSeparator();
         assertThat(mem.toString(), is(expect));
         System.setOut(out);
     }
@@ -42,7 +42,7 @@ public class ValidateInputTest {
         String[] data = {"5", "1"};
         ValidateInput input = new ValidateStubInput(data);
         input.askInt("Enter", 4);
-        String expect = "Please select key from menu.\r\n";
+        String expect = "Please select key from menu." + System.lineSeparator();
         assertThat(mem.toString(), is(expect));
         System.setOut(out);
     }
