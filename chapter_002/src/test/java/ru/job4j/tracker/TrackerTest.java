@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
@@ -42,8 +43,8 @@ public class TrackerTest {
         tracker.add(item2);
         tracker.add(item3);
         tracker.add(item4);
-        ArrayList<Item> results = tracker.findByName("testname");
-        ArrayList<Item> expect = new ArrayList<>();
+        List<Item> results = tracker.findByName("testname");
+        List<Item> expect = new ArrayList<>();
         expect.add(item2);
         expect.add(item4);
         assertThat(results, is(expect));
@@ -73,8 +74,8 @@ public class TrackerTest {
         tracker.add(item2);
         tracker.add(item3);
         tracker.add(item4);
-        ArrayList<Item> results = tracker.findAll();
-        ArrayList<Item> expect = new ArrayList<>(Arrays.asList(item1, item2, item3, item4));
+        List<Item> results = tracker.findAll();
+        List<Item> expect = new ArrayList<>(Arrays.asList(item1, item2, item3, item4));
         assertThat(results, is(expect));
     }
 
@@ -129,8 +130,8 @@ public class TrackerTest {
         tracker.add(item3);
         tracker.add(item4);
         tracker.delete(item2.getId());
-        ArrayList<Item> results = tracker.findAll();
-        ArrayList<Item> expect = new ArrayList<>(Arrays.asList(item1, item3, item4));
+        List<Item> results = tracker.findAll();
+        List<Item> expect = new ArrayList<>(Arrays.asList(item1, item3, item4));
         assertThat(results, is(expect));
     }
 
@@ -148,8 +149,8 @@ public class TrackerTest {
         tracker.add(item4);
         tracker.delete(item2.getId());
         tracker.add(item5);
-        ArrayList<Item> results = tracker.findAll();
-        ArrayList<Item> expect = new ArrayList<>(Arrays.asList(item1,  item3, item4, item5));
+        List<Item> results = tracker.findAll();
+        List<Item> expect = new ArrayList<>(Arrays.asList(item1,  item3, item4, item5));
         assertThat(results, is(expect));
     }
 }
