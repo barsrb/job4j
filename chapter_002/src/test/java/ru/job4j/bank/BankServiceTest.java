@@ -54,4 +54,34 @@ public class BankServiceTest {
         service.transferMoney("3434", "usr1", "2211", "usr2", 60D);
         assertThat(service.findByRequisite("2211", "usr2").getBalance(), is(110D));
     }
+
+    @Test
+    public void transferBetweenUsersFailedNoMoney() {
+        boolean resultOfTransfer = service.transferMoney("3434", "usr1", "2211", "usr2", 600D);
+        assertFalse(resultOfTransfer);
+    }
+
+    @Test
+    public void transferBetweenUsersFailedNoFirstUser() {
+        boolean resultOfTransfer = service.transferMoney("None", "usr1", "2211", "usr2", 60D);
+        assertFalse(resultOfTransfer);
+    }
+
+    @Test
+    public void transferBetweenUsersFailedNoSecondUser() {
+        boolean resultOfTransfer = service.transferMoney("3434", "usr1", "None", "usr2", 60D);
+        assertFalse(resultOfTransfer);
+    }
+
+    @Test
+    public void transferBetweenUsersFailedNoFirstUserAccount() {
+        boolean resultOfTransfer = service.transferMoney("3434", "none", "2211", "usr2", 60D);
+        assertFalse(resultOfTransfer);
+    }
+
+    @Test
+    public void transferBetweenUsersFailedNoSecondUserAccount() {
+        boolean resultOfTransfer = service.transferMoney("3434", "usr1", "2211", "none", 60D);
+        assertFalse(resultOfTransfer);
+    }
 }
