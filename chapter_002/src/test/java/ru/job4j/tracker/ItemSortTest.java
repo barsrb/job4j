@@ -21,7 +21,7 @@ public class ItemSortTest {
         tracker.add(item2);
         tracker.add(item4);
         List<Item> items = tracker.findAll();
-        items.sort(new ItemSort());
+        items.sort(new ItemSortByName());
 
         List<Item> expected = new ArrayList<>();
         expected.add(item1);
@@ -44,7 +44,7 @@ public class ItemSortTest {
         tracker.add(item2);
         tracker.add(item4);
         List<Item> items = tracker.findAll();
-        items.sort(new ItemReverseSort());
+        items.sort(new ItemSortByNameReverse());
 
         List<Item> expected = new ArrayList<>();
         expected.add(item4);

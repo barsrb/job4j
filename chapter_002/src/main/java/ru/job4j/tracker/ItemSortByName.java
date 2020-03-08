@@ -2,7 +2,7 @@ package ru.job4j.tracker;
 
 import java.util.Comparator;
 
-public class ItemSort implements Comparator<Item> {
+public class ItemSortByName implements Comparator<Item> {
 
     @Override
     public int compare(Item item1, Item item2) {
