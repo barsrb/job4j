@@ -18,7 +18,7 @@ public class FunctionInDiapasonTest {
 
     @Test
     public void whenQuadFunction() {
-        List<Double> result = FunctionInDiapason.diapason(0, 4, x -> x*x*x + 1);
+        List<Double> result = FunctionInDiapason.diapason(0, 4, x -> x * x * x + 1);
         List<Double> expected = Arrays.asList(1D, 2D, 9D, 28D);
         assertThat(result, is(expected));
     }
