@@ -4,21 +4,23 @@ import org.junit.Test;
 import ru.job4j.pojo.Student;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class SchoolTest {
 
-    Student a1 = new Student(70);
-    Student a2 = new Student(80);
-    Student a3 = new Student(100);
-    Student b1 = new Student(69);
-    Student b2 = new Student(50);
-    Student c1 = new Student(1);
-    Student c2 = new Student(49);
-    Student c3 = new Student(33);
+    Student a1 = new Student("A1", 70);
+    Student a2 = new Student("A2", 80);
+    Student a3 = new Student("A3", 100);
+    Student b1 = new Student("B1", 69);
+    Student b2 = new Student("B2", 50);
+    Student c1 = new Student("C1", 1);
+    Student c2 = new Student("C2", 49);
+    Student c3 = new Student("C3", 33);
 
     private List<Student> studentsA = Arrays.asList(a1, a2, a3);
     private List<Student> studentsB = Arrays.asList(b1, b2);
@@ -44,6 +46,14 @@ public class SchoolTest {
         assertThat(filtered, is(studentsC));
     }
 
-
+    @Test
+    public void testMappedAClass() {
+        Map<String, Student> filtered = School.collectToMap(studentsA);
+        Map<String, Student> expected = new HashMap<>();
+        expected.put(a1.getSurname(), a1);
+        expected.put(a2.getSurname(), a2);
+        expected.put(a3.getSurname(), a3);
+        assertThat(filtered, is(expected));
+    }
 
 }
