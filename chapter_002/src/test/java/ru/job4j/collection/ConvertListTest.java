@@ -12,27 +12,27 @@ import static org.junit.Assert.*;
 public class ConvertListTest {
     @Test
     public void whenTwoList() {
-        List<int[]> in = new ArrayList<>();
-        in.add(new int[] {1});
-        in.add(new int[] {2, 3});
+        List<Integer[]> in = new ArrayList<>();
+        in.add(new Integer[] {1});
+        in.add(new Integer[] {2, 3});
         List<Integer> expect = Arrays.asList(1, 2, 3);
         assertThat(ConvertList.convert(in), is(expect));
     }
 
     @Test
     public void whenOneList() {
-        List<int[]> in = new ArrayList<>();
-        in.add(new int[] {1, 2, 3});
+        List<Integer[]> in = new ArrayList<>();
+        in.add(new Integer[] {1, 2, 3});
         List<Integer> expect = Arrays.asList(1, 2, 3);
         assertThat(ConvertList.convert(in), is(expect));
     }
 
     @Test
     public void whenThreeList() {
-        List<int[]> in = new ArrayList<>();
-        in.add(new int[] {1});
-        in.add(new int[] {2});
-        in.add(new int[] {3});
+        List<Integer[]> in = new ArrayList<>();
+        in.add(new Integer[] {1});
+        in.add(new Integer[] {2});
+        in.add(new Integer[] {3});
         List<Integer> expect = Arrays.asList(1, 2, 3);
         assertThat(ConvertList.convert(in), is(expect));
     }
