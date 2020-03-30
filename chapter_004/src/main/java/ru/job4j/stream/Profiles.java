@@ -12,4 +12,12 @@ public class Profiles {
                 .map(Profile::getAddress)
                 .collect(Collectors.toList());
     }
+
+    public static List<Address> collectUniqueAndSorted(List<Profile> profiles) {
+        return profiles.stream()
+                .map(Profile::getAddress)
+                .distinct()
+                .sorted(new AddressCityComparator())
+                .collect(Collectors.toList());
+    }
 }
