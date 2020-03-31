@@ -3,10 +3,7 @@ package ru.job4j.stream;
 import org.junit.Test;
 import ru.job4j.pojo.Student;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -53,6 +50,15 @@ public class SchoolTest {
         expected.put(a1.getSurname(), a1);
         expected.put(a2.getSurname(), a2);
         expected.put(a3.getSurname(), a3);
+        assertThat(filtered, is(expected));
+    }
+
+    @Test
+    public void testStudentsWithBoundMore50() {
+        List<Student> allStudentsWithNull = Arrays.asList(a1, a2, null, a3, b2, null, b1, c1, null, null, c2, c3);
+
+        List<Student> filtered = School.levelOf(allStudentsWithNull, 50);
+        List<Student> expected = Arrays.asList(a3, a2, a1, b1, b2);
         assertThat(filtered, is(expected));
     }
 
