@@ -15,7 +15,7 @@ public class SearchAttTest {
     private Attachment test3 = new Attachment("test3", 200);
     private Attachment test41 = new Attachment("test41", 20);
     private Attachment test42 = new Attachment("test42", 40);
-    private List<Attachment> list = new ArrayList<>(Arrays.asList(test1, test2, test3, test41, test42));
+    private List<Attachment> list = List.of(test1, test2, test3, test41, test42);
 
     @Test
     public void compareFilteredAttachmentsWithNameTest4() {

@@ -14,7 +14,7 @@ public class FlatMapTest {
     public void flatTest() {
         Integer[][] matrix = new Integer[][]{{1, 2}, {3, 4}, {5, 6}};
         List<Integer> flat = FlatMap.flatMap(matrix);
-        List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<Integer> expected = List.of(1, 2, 3, 4, 5, 6);
         assertThat(flat, is(expected));
     }
 

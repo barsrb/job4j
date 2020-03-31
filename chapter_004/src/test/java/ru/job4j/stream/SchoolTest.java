@@ -19,10 +19,10 @@ public class SchoolTest {
     Student c2 = new Student("C2", 49);
     Student c3 = new Student("C3", 33);
 
-    private List<Student> studentsA = Arrays.asList(a1, a2, a3);
-    private List<Student> studentsB = Arrays.asList(b1, b2);
-    private List<Student> studentsC = Arrays.asList(c1, c2, c3);
-    private List<Student> allStudents = Arrays.asList(a1, a2, a3, b1, b2, c1, c2, c3);
+    private List<Student> studentsA = List.of(a1, a2, a3);
+    private List<Student> studentsB = List.of(b1, b2);
+    private List<Student> studentsC = List.of(c1, c2, c3);
+    private List<Student> allStudents = List.of(a1, a2, a3, b1, b2, c1, c2, c3);
 
 
     @Test
@@ -46,10 +46,11 @@ public class SchoolTest {
     @Test
     public void testMappedAClass() {
         Map<String, Student> filtered = School.collectToMap(studentsA);
-        Map<String, Student> expected = new HashMap<>();
-        expected.put(a1.getSurname(), a1);
-        expected.put(a2.getSurname(), a2);
-        expected.put(a3.getSurname(), a3);
+        Map<String, Student> expected = Map.of(
+                a1.getSurname(), a1,
+                a2.getSurname(), a2,
+                a3.getSurname(), a3
+        );
         assertThat(filtered, is(expected));
     }
 
@@ -58,7 +59,7 @@ public class SchoolTest {
         List<Student> allStudentsWithNull = Arrays.asList(a1, a2, null, a3, b2, null, b1, c1, null, null, c2, c3);
 
         List<Student> filtered = School.levelOf(allStudentsWithNull, 50);
-        List<Student> expected = Arrays.asList(a3, a2, a1, b1, b2);
+        List<Student> expected = List.of(a3, a2, a1, b1, b2);
         assertThat(filtered, is(expected));
     }
 

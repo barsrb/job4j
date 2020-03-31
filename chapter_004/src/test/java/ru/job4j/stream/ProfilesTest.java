@@ -30,19 +30,20 @@ public class ProfilesTest {
 
     @Test
     public void collectUniqueAndSortedAddresses() {
-        List<Profile> profiles = new ArrayList<>();
         Address address1 = new Address("Moscow", "Moroseyka", 12, 12);
         Address address2 = new Address("Moscow", "Petrovka", 38, 0);
         Address address3 = new Address("Minsk", "Petrovka", 38, 0);
         Address address4 = new Address("Omsk", "Omskaya", 1, 1);
         Address address5 = new Address("Omsk", "Omskaya", 1, 1);
         Address address6 = new Address("Manchester", "Unknown", 1, 1);
-        profiles.add(new Profile(address1));
-        profiles.add(new Profile(address2));
-        profiles.add(new Profile(address3));
-        profiles.add(new Profile(address4));
-        profiles.add(new Profile(address5));
-        profiles.add(new Profile(address6));
+        List<Profile> profiles = List.of(
+                new Profile(address1),
+                new Profile(address2),
+                new Profile(address3),
+                new Profile(address4),
+                new Profile(address5),
+                new Profile(address6)
+        );
 
         List<Address> collected = Profiles.collectUniqueAndSorted(profiles);
         assertEquals(collected.size(), 5);
