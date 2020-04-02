@@ -27,32 +27,32 @@ public class BankServiceTest {
     public void addUser() {
         User user = new User("34345", "Petr Arsentev");
         service.addUser(user);
-        assertThat(service.findByPassport("34345"), is(user));
+        assertThat(service.findByPassport("34345").get(), is(user));
     }
 
     @Test
     public void addAccount() {
         service.addAccount("3434", new Account("usr1_2", 10D));
-        assertThat(service.findByRequisite("3434", "usr1_2").getBalance(), is(10D));
+        assertThat(service.findByRequisite("3434", "usr1_2").get().getBalance(), is(10D));
     }
 
     @Test
     public void transferMoney() {
         service.addAccount("3434", new Account("usr1_2", 10D));
         service.transferMoney("3434", "usr1", "3434", "usr1_2", 150D);
-        assertThat(service.findByRequisite("3434", "usr1_2").getBalance(), is(160D));
+        assertThat(service.findByRequisite("3434", "usr1_2").get().getBalance(), is(160D));
     }
 
     @Test
     public void transferBetweenUsersCheckUser1() {
         service.transferMoney("3434", "usr1", "2211", "usr2", 60D);
-        assertThat(service.findByRequisite("3434", "usr1").getBalance(), is(90D));
+        assertThat(service.findByRequisite("3434", "usr1").get().getBalance(), is(90D));
     }
 
     @Test
     public void transferBetweenUsersCheckUser2() {
         service.transferMoney("3434", "usr1", "2211", "usr2", 60D);
-        assertThat(service.findByRequisite("2211", "usr2").getBalance(), is(110D));
+        assertThat(service.findByRequisite("2211", "usr2").get().getBalance(), is(110D));
     }
 
     @Test
